@@ -3,28 +3,37 @@ class ContactInfo {
     
 
     contactGmail() {
+    const email = Cypress.env("WP_EMAIL");
     cy.get('#contact label').click();
-    cy.get('#email').type(WP_EMAIL);
+    cy.get('#email').type(email);
   }
 
   shippingAddress() {
+    const country = Cypress.env("WP_COUNTRY");
+    const district = Cypress.env("WP_DISTRICT");
+    const firstName = Cypress.env("WP_FIRST_NAME");
+    const lastName = Cypress.env("WP_LAST_NAME");
+    const address = Cypress.env("WP_ADDRESS");
+    const city = Cypress.env("WP_CITY");
+    const postCode = Cypress.env("WP_POSTCODE");
+    const phone = Cypress.env("WP_PHONE");
     cy.get('#shipping-country')
       .should('be.visible')
-      .invoke('val', WP_COUNTRY)
+      .invoke('val', country)
       .trigger('change');
     cy.get('#shipping-state option')
       .should('have.length.greaterThan', 1);
     cy.get('#shipping-state')
       .should('be.visible')
-      .select(WP_DISTRICT);
-    cy.get('#shipping-first_name').type(WP_FIRST_NAME);
-    cy.get('#shipping-last_name').type(WP_LAST_NAME);
-    cy.get('#shipping-address_1').type(WP_ADDRESS);
-    cy.get('#shipping-city').type(WP_CITY);
+      .select(district);
+    cy.get('#shipping-first_name').type(firstName);
+    cy.get('#shipping-last_name').type(lastName);
+    cy.get('#shipping-address_1').type(address);
+    cy.get('#shipping-city').type(city);
     cy.get('#shipping-postcode')
-    .type(WP_POSTCODE, { force: true });
+    .type(postCode, { force: true });
     cy.get('#shipping-phone')
-    .type(WP_PHONE, { force: true });
+    .type(phone, { force: true });
   }
 
   billingAddress() {

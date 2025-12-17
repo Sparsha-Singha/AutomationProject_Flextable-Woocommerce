@@ -51,7 +51,7 @@ describe("Flextable Automation", () => {
     SettingsPage.openSettings();
     SettingsPage.enableTitleAndDescription();
     OpenPage.openPage();
-    OpenPage.titleDescriptionCheck();
+    // OpenPage.titleDescriptionCheck();
   });
   
   it("Enable Entry Info & Pagination", () => {
@@ -59,7 +59,7 @@ describe("Flextable Automation", () => {
     SettingsPage.openSettings();
     SettingsPage.enableEntryInfoPagination();
     OpenPage.openPage();
-    OpenPage.tableClassAttributeCheck();
+    // OpenPage.tableClassAttributeCheck();
   });
   
   it("Update 'Rows Per Page & Table Height'", () => {

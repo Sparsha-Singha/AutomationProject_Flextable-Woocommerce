@@ -2,7 +2,7 @@ class CreateTablePage {
 
   importSheet(url) {
     cy.get('#sheet-url').type(`${url}{enter}`);
-    cy.get('#swptls-app-root button.btn').click();  cy.wait(6000);
+    cy.get('#swptls-app-root button.btn').click();  cy.wait(10000);
   }
 
   enterDetails(name, description) {

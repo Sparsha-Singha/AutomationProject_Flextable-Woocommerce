@@ -3,7 +3,7 @@ class OpenPage {
   openPage() {
     cy.get('#menu-pages div.wp-menu-name').click();
     cy.contains('tr', 'FlexTable Automation Test').find('.row-actions .view a').click({ force: true });
-    cy.wait(1000);
+    cy.wait(5000);
   }
 
   pageShop() {
@@ -28,8 +28,20 @@ class OpenPage {
   }
 
   titleDescriptionCheck() {
-    cy.get('#swptls-table-title').should('have.text', 'FlexTable Assignment-Test Data');
-    cy.get('#swptls-table-description').should('have.text', 'Test data for automation testing');
+    cy.get('iframe', { timeout: 20000 })
+    .its('0.contentDocument.body')
+    .should('not.be.empty')
+    .then(cy.wrap)
+    .find('#swptls-table-title', { timeout: 10000 })
+    .should('have.text', 'FlexTable Assignment-Test Data');
+
+    cy.get('iframe', { timeout: 20000 })
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .then(cy.wrap)
+      .find('#swptls-table-description', { timeout: 10000 })
+      .should('have.text', 'Test data for automation testing');
+
   }
   
   tableClassAttributeCheck() {

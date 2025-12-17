@@ -5,6 +5,7 @@
   "scripts": {
     "test": "cypress run",
     "open": "cypress open",
+    "cypress:run": "cypress run --browser chrome",
     "report": "marge reports/*.json --reportDir reports/html"
   },
   "keywords": [],

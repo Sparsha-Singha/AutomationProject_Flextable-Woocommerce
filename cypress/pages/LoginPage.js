@@ -24,6 +24,7 @@ class LoginPage {
     const gmail = Cypress.env("WP_USERNAME");
     const pass = Cypress.env("WP_PASSWORD");
 
+    cy.get('#modal-1-content a[href="http://localhost/wordpress/index.php/my-account/"] span.wp-block-navigation-item__label').click();
     cy.get('[name="username"]').type(gmail);
     cy.get('[name="password"]').type(pass, { log: false });
     cy.get('#wp--skip-link--target [name="login"]').click();

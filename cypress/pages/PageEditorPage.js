@@ -22,7 +22,7 @@ class PageEditorPage {
 
   openEditPage(pageName) {
     cy.contains('tr', 'FlexTable Automation Test')
-      .find('.row-actions .edit a')
+      .find('.row-actions .edit a',{ timeout: 10000 })
       .click({ force: true });
   }
 

@@ -1,8 +1,8 @@
 class SettingsPage {
 
   openSettings() {
-    cy.get('#swptls-app-root svg[viewBox="0 0 16 15"]').click();
-    cy.get('#swptls-app-root li:nth-child(3) span.icon').click();
+    cy.get('#swptls-app-root svg[viewBox="0 0 16 15"]', { timeout: 10000 }).click();
+    cy.get('#swptls-app-root li:nth-child(3) span.icon', { timeout: 10000 }).click();
   }
 
   enableTitleAndDescription() {
